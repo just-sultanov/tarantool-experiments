@@ -115,4 +115,10 @@
   deploy           {:doc  "Deploy the jar to clojars"
                     :task (if -deployable?
                             (clojure (with-params "-T:build deploy"))
-                            (println "Skip deploy..."))}}}
+                            (println "Skip deploy..."))}
+
+  up               {:doc  "Start development environment"
+                    :task (shell {:extra-env extra-env} "docker compose up -d")}
+
+  down             {:doc  "Shutdown development environment"
+                    :task (shell {:extra-env extra-env} "docker compose down")}}}
