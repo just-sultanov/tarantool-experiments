@@ -1,6 +1,7 @@
 {:paths   ["src/main/clojure" "src/main/resources"]
 
- :deps    {org.clojure/clojure {:mvn/version "1.10.3"}}
+ :deps    {org.clojure/clojure           {:mvn/version "1.10.3"}
+           io.tarantool/cartridge-driver {:mvn/version "0.6.0"}}
 
  :aliases {:develop          {:extra-paths ["src/dev/clojure" "src/dev/resources"]
                               :extra-deps  {nrepl/nrepl {:mvn/version "0.8.3"}
