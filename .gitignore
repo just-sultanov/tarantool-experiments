@@ -15,6 +15,7 @@
 checkouts
 classes
 coverage
+infra/tarantool/data
 node_modules
 target
 build.edn

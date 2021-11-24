@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  tarantool-node1:
+    image: tarantool/tarantool:2.8.2
+    container_name: tarantool-node1
+    hostname: tarantool-node1
+    environment:
+      - TARANTOOL_USER_NAME=root
+      - TARANTOOL_USER_PASSWORD=root
+    command: tarantool /opt/tarantool/app.lua
+    networks:
+      - net
+    ports:
+      - "3301:3301"
+    volumes:
+      # a volume containing operational data (snapshots, xlogs and vinyl runs)
+      - "./infra/tarantool/data:/var/lib/tarantool"
+      # a place where users should put their lua application code
+      - "./src/main/tarantool:/opt/tarantool"
+
+networks:
+  net:
+    driver: bridge
